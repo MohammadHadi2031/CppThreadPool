@@ -10,6 +10,6 @@ void Logger::log(string message)
 void Logger::log(string message, thread::id threadId)
 {
 #ifdef DEBUG
-    cout << message << "\t\t\t" << threadId << endl;
+    cout << std::left << std::setw(25) << message << setw(25) << threadId << endl;
 #endif
 }

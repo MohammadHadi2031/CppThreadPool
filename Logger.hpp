@@ -1,8 +1,12 @@
 #ifndef LOGGER
 #define LOGGER
 
+#define DEBUG
+
 #include <string>
 #include <thread>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 

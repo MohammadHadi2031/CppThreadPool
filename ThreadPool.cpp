@@ -67,10 +67,3 @@ void ThreadPool::Stop()
         thread.join();
     }
 }
-
-// string ThreadPool::ToString(thread::Id threadId)
-// {
-//     std::ostringstream ss;
-//     ss << std::this_thread::get_id();
-//     std::string idstr = ss.str();
-// }

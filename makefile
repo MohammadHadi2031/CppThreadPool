@@ -6,7 +6,7 @@ output.o: main.o threadPool.o task.o printTask.o concurrentTaskQueue.o logger.o
 main.o: main.cpp
 	${CC} -c main.cpp -o main.o
 
-threadPool.o: ThreadPool.cpp ThreadPool.hpp Logger.hpp
+threadPool.o: ThreadPool.cpp ThreadPool.hpp Logger.o
 	${CC} -c ThreadPool.cpp -o threadPool.o
 
 task.o: Task.cpp Task.hpp
