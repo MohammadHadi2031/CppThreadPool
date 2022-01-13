@@ -7,9 +7,10 @@
 #include <thread>
 #include <condition_variable>
 #include <mutex>
-#include "ConcurrentTaskQueue.hpp"
 #include <iostream>
 #include <memory>
+#include "Logger.hpp"
+#include <sstream>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class ThreadPool
         ThreadPool(int size);
         void AddTask(shared_ptr<Task> task);
         void Stop();
+        //static string ToString(thread::id threadId);
 
     private: 
         queue<shared_ptr<Task>> _tasks;
@@ -27,7 +29,6 @@ class ThreadPool
         bool _stop;
         condition_variable _cv;
         mutex _cv_mutex;
-        void WaitForWakeup();
 };
 
 #endif

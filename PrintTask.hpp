@@ -15,7 +15,7 @@ class PrintTask : public Task
         PrintTask(string message, int delayMilliseconds);
     
     protected:
-        virtual void Do();
+        void Do() override;
 
     private:
         string _message;

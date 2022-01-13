@@ -4,14 +4,15 @@
 #include <queue>
 #include "Task.hpp"
 #include <mutex>
+#include <memory>
 
 using namespace std;
 
-class ConcurrentTaskQueue : public queue<Task>
+class ConcurrentTaskQueue : public queue<shared_ptr<Task>>
 {
     public:
-        void enqueue(Task t);
-        Task dequeue();
+        void enqueue(shared_ptr<Task> t);
+        shared_ptr<Task> dequeue();
         bool empty();
 
     private:

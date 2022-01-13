@@ -10,19 +10,20 @@ using namespace std;
 
 int main()
 {
-    auto printer = PrintTask("hello world" + to_string(12), 0);
-    printer();
+    shared_ptr<Task> printer(new PrintTask("hello world", 0));
+    (*printer)();
 
     ThreadPool tp(3);
     
     for (int i = 0; i < 10; i++)
     {
         auto message = "student" + to_string(i);
-        auto t = make_shared<Task>(PrintTask(message, 0));
+        shared_ptr<Task> t(new PrintTask(message, 1000));
         tp.AddTask(t);
         this_thread::sleep_for(chrono::milliseconds(200));
     }
 
+    this_thread::sleep_for(chrono::milliseconds(3000));
     tp.Stop();
 
     return 0;
